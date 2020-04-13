@@ -1,5 +1,10 @@
 package ru.avalon.java.dev.j10.labs.models;
 
+
+import com.sun.jmx.snmp.SnmpUnknownAccContrModelException;
+
+import java.util.Date;
+
 /**
  * Представление о паспортных данных человека.
  * <p>
@@ -16,7 +21,14 @@ package ru.avalon.java.dev.j10.labs.models;
  * </ol>
  */
 class Passport {
-
+    private String seria_number;
+    private String name;
+    private String last_name;
+    private String father_name;
+    private String second_name;
+    private Date birthday;
+    private Date release_date;
+    private String organ;
     /*
      * TODO(Студент): Закончить определение класса.
      *
@@ -37,4 +49,17 @@ class Passport {
      * 5. Обеспечте возможность использования класса за
      *    пределами пакета.
      */
+    public void setFullName(String name, String second_name, String last_name, String father_name){
+        this.name = name;
+        this.second_name = second_name;
+        this.last_name = last_name;
+        this.father_name = father_name;
+    }
+    public String getFullName(){
+        String full_name = String.join(" ", this.last_name, this.name);
+        if (this.father_name == null && this.second_name != null) full_name = this.name + " " + this.second_name.substring(0,1) + ". " + this.last_name;
+        else if (this.father_name != null) full_name = String.join(" ", this.last_name, this.name, this.father_name);
+
+        return full_name;
+    }
 }
