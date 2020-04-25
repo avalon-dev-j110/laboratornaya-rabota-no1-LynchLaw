@@ -33,8 +33,7 @@ public class Person {
      * @return имя человека в виде строки.
      */
     public Person(String name, String second_name, String last_name, String father_name){
-        this.passport = new Passport();
-        this.passport.setFullName(name, second_name, last_name, father_name);
+        this.passport = new Passport(name, second_name, last_name, father_name);
     }
     public String getFullName() {
         /*

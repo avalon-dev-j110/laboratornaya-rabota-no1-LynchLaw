@@ -49,11 +49,43 @@ class Passport {
      * 5. Обеспечте возможность использования класса за
      *    пределами пакета.
      */
-    public void setFullName(String name, String second_name, String last_name, String father_name){
+    public Passport(String name, String second_name, String last_name, String father_name){
         this.name = name;
         this.second_name = second_name;
         this.last_name = last_name;
         this.father_name = father_name;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public Date getRelease_date() {
+        return release_date;
+    }
+
+    public String getFather_name() {
+        return father_name;
+    }
+
+    public String getLast_name() {
+        return last_name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getOrgan() {
+        return organ;
+    }
+
+    public String getSecond_name() {
+        return second_name;
+    }
+
+    public String getSeria_number() {
+        return seria_number;
     }
     public String getFullName(){
         String full_name = String.join(" ", this.last_name, this.name);
